@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+<ul>
+  {% for post in posts %}
+    <li>
+      <h3>{{ post.postname }}</h3>
+      <p>Description: {{ post.description }}</p>
+      <p>Price: {{ post.price }}</p>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+

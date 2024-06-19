@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+<div id="favourites" class="container mt-3">
+    <div class="row">
+        <h1> Favourites </h1>
+        {% for post in queryset %}
+        <div class="col-sm-4">
+            <div class="card">
+                <img src="{{post.image}}" class="card-img-top" width="300" height="300" alt="Post Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.postname }}</h5>
+                    <p class="card-text">{{post.description}}</p>
+                    <p class="card-text">${{post.price}}</p>
+                    <a href="{{url_for('remove_from_favourite', id=post.id)}}" class="btn btn-danger">Remove from Favourites</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
